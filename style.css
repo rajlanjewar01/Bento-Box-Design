@@ -1,0 +1,309 @@
+/* --- Variables --- */
+/* --- Mixins --- */
+/* --- Global Reset --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans", "Inter", sans-serif;
+  background-color: #f5f7fa;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* --- Grid System --- */
+.bento-grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  grid-template-areas: "hero" "manage" "maintain" "schedule" "stats" "create" "write" "grow";
+}
+@media (min-width: 600px) {
+  .bento-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "hero hero" "manage maintain" "schedule schedule" "create stats" "write grow";
+  }
+}
+@media (min-width: 1024px) {
+  .bento-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "create hero hero schedule" "write manage maintain schedule" "write stats grow grow";
+  }
+}
+
+/* --- Card Styles --- */
+.card {
+  border-radius: 8px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+}
+.card h3 {
+  font-size: 1.5rem;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+.card p {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.4;
+}
+.card-hero {
+  grid-area: hero;
+  background-color: #7c5cff;
+  color: #ffffff;
+  text-align: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+.card-hero h3 {
+  color: #ffffff;
+  font-size: 2.2rem;
+}
+.card-hero .stars {
+  color: #ffcd6b;
+  margin: 10px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.card-hero .stars i {
+  margin-right: 8px;
+}
+.card-hero .reviews {
+  color: rgb(255, 255, 255);
+  font-size: 0.9rem;
+}
+@media (min-width: 1024px) {
+  .card-hero {
+    justify-content: center;
+  }
+}
+.card-manage {
+  grid-area: manage;
+}
+.card-manage .social-icons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.card-manage .social-icons .icon-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+}
+.card-manage .social-icons .icon-circle.insta {
+  background: #fceceb;
+  color: #E1306C;
+}
+.card-manage .social-icons .icon-circle.twitter {
+  background: #e8f5fe;
+  color: #1DA1F2;
+}
+.card-maintain {
+  grid-area: maintain;
+  background-color: #ffcd6b;
+  padding-bottom: 0;
+}
+.card-maintain .calendar-strip {
+  background: #ffffff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.card-maintain .calendar-strip .check-circle {
+  width: 24px;
+  height: 24px;
+  background: #7c5cff;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+.card-schedule {
+  grid-area: schedule;
+  background-color: #dcd1fc;
+}
+.card-schedule .chart-mockup {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 15px;
+  margin-top: 20px;
+}
+.card-schedule .chart-mockup .chart-title {
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
+}
+.card-schedule .chart-mockup .bars {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 60px;
+  margin-top: 10px;
+}
+.card-schedule .chart-mockup .bars .bar {
+  width: 12px;
+  background: #7c5cff;
+  border-radius: 4px;
+  opacity: 0.5;
+}
+.card-schedule .chart-mockup .bars .bar.active {
+  height: 80%;
+  opacity: 1;
+}
+.card-schedule .desc {
+  margin-top: 15px;
+}
+.card-stats {
+  grid-area: stats;
+}
+.card-stats .big-stat {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+}
+.card-stats .avatars {
+  display: flex;
+  margin-top: 15px;
+}
+.card-stats .avatars .avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid #ffffff;
+  margin-left: -12px;
+  background: #ddd;
+}
+.card-stats .avatars .avatar:first-child {
+  margin-left: 0;
+}
+.card-create {
+  grid-area: create;
+  background-color: #faeee2;
+}
+.card-create h3 {
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: -2px;
+}
+.card-create .highlight {
+  color: #7c5cff;
+  font-style: italic;
+  letter-spacing: -2px;
+}
+.card-create .create-btn {
+  background: #ffcc69;
+  color: #7c59ca;
+  border: none;
+  padding: 12px 14px;
+  border-radius: 50px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  margin-top: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(252, 213, 112, 0.4);
+}
+.card-write {
+  grid-area: write;
+  background-color: #ffcc69;
+}
+.card-write h3 {
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: -2px;
+}
+.card-write .chat-ui {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 15px;
+  margin-top: 15px;
+}
+.card-write .chat-ui .bubble {
+  background: #feeded;
+  padding: 8px 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  font-size: 0.8rem;
+  width: fit-content;
+}
+.card-write .chat-ui .bubble.ai {
+  background: #fdf5e8;
+  align-self: flex-end;
+}
+.card-write .chat-ui .chat-wrapper {
+  display: flex;
+  align-items: end;
+}
+@media (min-width: 1024px) {
+  .card-write {
+    justify-content: flex-start;
+  }
+}
+.card-grow {
+  grid-area: grow;
+  background-color: #7651dc;
+  color: #ffffff;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+.card-grow h3 {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.8rem;
+}
+.card-grow .grow-chart-mini {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 10px;
+  width: 120px;
+  flex-shrink: 0;
+  color: black;
+}
+.card-grow .grow-chart-mini .num {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.card-grow .grow-chart-mini .badge {
+  font-size: 0.7rem;
+  color: #2ecc71;
+}
+@media (min-width: 1024px) {
+  .card-grow h3 {
+    font-size: 2rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
