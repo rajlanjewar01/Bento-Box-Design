@@ -17,6 +17,11 @@ body {
   min-height: 100vh;
 }
 
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
 /* --- Block: social --- */
 .social {
   width: 100%;
@@ -76,6 +81,10 @@ body {
 .social__card--manage {
   grid-area: manage;
 }
+.social__card--manage .social__title {
+  font-weight: 500;
+  letter-spacing: -2px;
+}
 .social__card--maintain {
   grid-area: maintain;
   background-color: #ffcd6b;
@@ -87,6 +96,9 @@ body {
 }
 .social__card--stats {
   grid-area: stats;
+}
+.social__card--stats .social__text {
+  margin: 10px 0 16px;
 }
 .social__card--create {
   grid-area: create;
