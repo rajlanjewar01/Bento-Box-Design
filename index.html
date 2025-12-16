@@ -14,85 +14,98 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="bento-grid">
-        <div class="card card-hero">
-            <h3>Social Media 10x <br> Faster with AI</h3>
-            <div class="stars">
-                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+    <main class="social">
+        <section class="social__card social__card--hero">
+            <h1 class="social__title">
+                Social Media <span class="social__highlight">10x</span> <br>
+                <em>Faster</em> with AI
+            </h1>
+            <div class="social__stars" aria-label="5 star reviews">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
             </div>
-            <p class="reviews">Over 4,000 5-star reviews</p>
-        </div>
+            <p class="social__reviews">Over 4,000 5-star reviews</p>
+        </section>
 
-        <div class="card card-manage">
-            <div class="social-icons">
-                <div class="icon-circle insta"><i class="fa-brands fa-instagram"></i></div>
-                <div class="icon-circle twitter"><i class="fa-brands fa-twitter"></i></div>
-            </div>
-            <h3>Manage multiple accounts and platforms.</h3>
-        </div>
-
-        <div class="card card-maintain">
-            <h3>Maintain a consistent posting schedule.</h3>
-            <div class="calendar-strip">
-                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
-                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
-                <div class="check-circle"><i class="fa-solid fa-check"></i></div>
-            </div>
-        </div>
-
-        <div class="card card-schedule">
-            <h3>Schedule to social media.</h3>
-            <div class="chart-mockup">
-                <div class="chart-title">Best Time to Post</div>
-                <div class="bars">
-                    <div class="bar" style="height: 30%"></div>
-                    <div class="bar" style="height: 50%"></div>
-                    <div class="bar active" style="height: 90%"></div>
-                    <div class="bar" style="height: 60%"></div>
+        <section class="social__card social__card--manage">
+            <div class="social__social-icons">
+                <div class="social__icon social__icon--insta">
+                    <i class="fa-brands fa-instagram"></i>
+                </div>
+                <div class="social__icon social__icon--twitter">
+                    <i class="fa-brands fa-twitter"></i>
                 </div>
             </div>
-            <p class="desc">Optimize post timings to publish content...</p>
-        </div>
+            <h2 class="social__title">Manage multiple accounts and platforms.</h2>
+        </section>
 
-        <div class="card card-stats">
-            <div class="big-stat">>56%</div>
-            <p>faster audience growth</p>
-            <div class="avatars">
-                <span class="avatar"></span><span class="avatar"></span><span class="avatar"></span>
+        <section class="social__card social__card--maintain">
+            <h2 class="social__title">Maintain a consistent posting schedule.</h2>
+            <div class="social__calendar-strip">
+                <div class="social__check"><i class="fa-solid fa-check"></i></div>
+                <div class="social__check"><i class="fa-solid fa-check"></i></div>
+                <div class="social__check"><i class="fa-solid fa-check"></i></div>
             </div>
-        </div>
+        </section>
 
-        <div class="card card-create">
-            <h3>Create and <br/>schedule <br/> content <br/><span class="highlight">quicker.</span></h3>
-            <button class="create-btn">Create Post <i class="fa-solid fa-splotch"></i></button>
-        </div>
+        <section class="social__card social__card--schedule">
+            <h2 class="social__title">Schedule to social media.</h2>
+            <div class="social__chart">
+                <div class="social__chart-title">Best Time to Post</div>
+                <ul class="social__bars">
+                    <li class="social__bar social__bar--h30"></li>
+                    <li class="social__bar social__bar--h50"></li>
+                    <li class="social__bar social__bar--h90 social__bar--active"></li>
+                    <li class="social__bar social__bar--h60"></li>
+                </ul>
+            </div>
+            <p class="social__desc">Optimize post timings to publish content...</p>
+        </section>
 
-        <div class="card card-write">
-            <h3>Write your <br/> content <br/>using AI.</h3>
-            <div class="chat-ui">
-                <div class="chat-wrapper">
-                    <div class="bubble">Give me 5 tips <br/> to grow my <br/> followers on insta</div>
-                    <div class="card card-stats">
-                        <div class="avatars">
-                            <span class="avatar"></span>
-                        </div>
+        <section class="social__card social__card--stats">
+            <div class="social__big-stat">&gt;56%</div>
+            <p class="social__text">faster audience growth</p>
+            <div class="social__avatars">
+                <span class="social__avatar"></span>
+                <span class="social__avatar"></span>
+                <span class="social__avatar"></span>
+            </div>
+        </section>
+
+        <section class="social__card social__card--create">
+            <h2 class="social__title">
+                Create and <br>schedule <br> content <br>
+                <span class="social__highlight">quicker.</span>
+            </h2>
+            <button class="social__btn">Create Post <i class="fa-solid fa-splotch"></i></button>
+        </section>
+
+        <section class="social__card social__card--write">
+            <h2 class="social__title">Write your <br> content <br>using AI.</h2>
+            <div class="social__chat">
+                <div class="social__chat-row">
+                    <div class="social__bubble">
+                        Give me 5 tips <br> to grow my <br> followers on insta
                     </div>
                 </div>
-                <div class="chat-wrapper">
-                    <div class="bubble ai">Certainly! Here <br/> are 5 tips to help you grow your Insta followers:</div>
+                <div class="social__chat-row">
+                    <div class="social__bubble social__bubble--ai">
+                        Certainly! Here <br> are 5 tips to help you grow your Insta followers:
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="card card-grow">
-            <div class="grow-chart-mini">
-                <div class="num">20k</div>
-                <div class="badge">+12%</div>
+        <section class="social__card social__card--grow">
+            <div class="social__grow-card">
+                <div class="social__num">20k</div>
+                <div class="social__badge">+12%</div>
             </div>
-            <h3>Grow followers with non-stop content.</h3>
-        </div>
-    </div>
-
+            <h2 class="social__title">Grow followers with non-stop content.</h2>
+        </section>
+    </main>
 </body>
 </html>

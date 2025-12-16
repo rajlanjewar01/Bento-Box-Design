@@ -17,8 +17,8 @@ body {
   min-height: 100vh;
 }
 
-/* --- Grid System --- */
-.bento-grid {
+/* --- Block: social --- */
+.social {
   width: 100%;
   max-width: 1200px;
   display: grid;
@@ -27,21 +27,21 @@ body {
   grid-template-areas: "hero" "manage" "maintain" "schedule" "stats" "create" "write" "grow";
 }
 @media (min-width: 600px) {
-  .bento-grid {
+  .social {
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "hero hero" "manage maintain" "schedule schedule" "create stats" "write grow";
   }
 }
 @media (min-width: 1024px) {
-  .bento-grid {
+  .social {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto auto;
     grid-template-areas: "create hero hero schedule" "write manage maintain schedule" "write stats grow grow";
   }
 }
 
-/* --- Card Styles --- */
-.card {
+/* --- Element: card --- */
+.social__card {
   border-radius: 8px;
   padding: 24px;
   display: flex;
@@ -52,23 +52,10 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
   transition: transform 0.2s ease;
 }
-.card:hover {
+.social__card:hover {
   transform: translateY(-2px);
 }
-.card h3 {
-  font-size: 1.5rem;
-  line-height: 1.1;
-  margin-bottom: 15px;
-  color: #1a1a1a;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-}
-.card p {
-  font-size: 0.9rem;
-  color: #555;
-  line-height: 1.4;
-}
-.card-hero {
+.social__card--hero {
   grid-area: hero;
   background-color: #7c5cff;
   color: #ffffff;
@@ -76,37 +63,99 @@ body {
   align-items: center;
   padding: 40px 20px;
 }
-.card-hero h3 {
+.social__card--hero .social__title {
   color: #ffffff;
-  font-size: 2.2rem;
+  font-size: 2.6rem;
+  font-weight: 500;
 }
-.card-hero .stars {
+@media (min-width: 1024px) {
+  .social__card--hero {
+    justify-content: center;
+  }
+}
+.social__card--manage {
+  grid-area: manage;
+}
+.social__card--maintain {
+  grid-area: maintain;
+  background-color: #ffcd6b;
+  padding-bottom: 0;
+}
+.social__card--schedule {
+  grid-area: schedule;
+  background-color: #dcd1fc;
+}
+.social__card--stats {
+  grid-area: stats;
+}
+.social__card--create {
+  grid-area: create;
+  background-color: #faeee2;
+}
+.social__card--create .social__title {
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+.social__card--create span.social__highlight {
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -2px;
+  color: #7c5cff;
+}
+.social__card--write {
+  grid-area: write;
+  background-color: #ffcc69;
+}
+.social__card--write .social__title {
+  font-weight: 500;
+  letter-spacing: -2px;
+}
+.social__card--grow {
+  grid-area: grow;
+  background-color: #7651dc;
+  color: #ffffff;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.social__title {
+  font-family: "DM Sans", "Inter", sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.social__highlight {
+  color: #fdca84;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.social__stars {
   color: #ffcd6b;
   margin: 10px 0;
   font-size: 1.2rem;
   font-weight: 600;
 }
-.card-hero .stars i {
-  margin-right: 8px;
+.social__stars i {
+  margin-right: 4px;
 }
-.card-hero .reviews {
-  color: rgb(255, 255, 255);
+
+.social__reviews {
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
 }
-@media (min-width: 1024px) {
-  .card-hero {
-    justify-content: center;
-  }
-}
-.card-manage {
-  grid-area: manage;
-}
-.card-manage .social-icons {
+
+/* Manage */
+.social__social-icons {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
 }
-.card-manage .social-icons .icon-circle {
+
+.social__icon {
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -115,20 +164,17 @@ body {
   align-items: center;
   font-size: 1.4rem;
 }
-.card-manage .social-icons .icon-circle.insta {
+.social__icon--insta {
   background: #fceceb;
-  color: #E1306C;
+  color: #e1306c;
 }
-.card-manage .social-icons .icon-circle.twitter {
+.social__icon--twitter {
   background: #e8f5fe;
-  color: #1DA1F2;
+  color: #1da1f2;
 }
-.card-maintain {
-  grid-area: maintain;
-  background-color: #ffcd6b;
-  padding-bottom: 0;
-}
-.card-maintain .calendar-strip {
+
+/* Maintain */
+.social__calendar-strip {
   background: #ffffff;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
@@ -137,7 +183,8 @@ body {
   justify-content: space-between;
   margin-top: 20px;
 }
-.card-maintain .calendar-strip .check-circle {
+
+.social__check {
   width: 24px;
   height: 24px;
   background: #7c5cff;
@@ -148,54 +195,77 @@ body {
   align-items: center;
   font-size: 12px;
 }
-.card-schedule {
-  grid-area: schedule;
-  background-color: #dcd1fc;
-}
-.card-schedule .chart-mockup {
+
+/* Schedule */
+.social__chart {
   background: #ffffff;
   border-radius: 16px;
   padding: 15px;
   margin-top: 20px;
 }
-.card-schedule .chart-mockup .chart-title {
+
+.social__chart-title {
   font-weight: 600;
   font-size: 0.8rem;
   margin-bottom: 5px;
 }
-.card-schedule .chart-mockup .bars {
+
+.social__bars {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   height: 60px;
   margin-top: 10px;
+  list-style: none;
+  padding: 0;
 }
-.card-schedule .chart-mockup .bars .bar {
+
+.social__bar {
   width: 12px;
   background: #7c5cff;
   border-radius: 4px;
   opacity: 0.5;
 }
-.card-schedule .chart-mockup .bars .bar.active {
-  height: 80%;
+.social__bar--active {
   opacity: 1;
 }
-.card-schedule .desc {
+.social__bar--h30 {
+  height: 30%;
+}
+.social__bar--h50 {
+  height: 50%;
+}
+.social__bar--h90 {
+  height: 90%;
+}
+.social__bar--h60 {
+  height: 60%;
+}
+
+.social__desc {
   margin-top: 15px;
+  font-size: 0.95rem;
+  color: #555;
 }
-.card-stats {
-  grid-area: stats;
-}
-.card-stats .big-stat {
+
+/* Stats */
+.social__big-stat {
   font-size: 3rem;
   font-weight: 800;
   line-height: 1;
 }
-.card-stats .avatars {
+
+.social__text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.social__avatars {
   display: flex;
   margin-top: 15px;
 }
-.card-stats .avatars .avatar {
+
+.social__avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -203,24 +273,12 @@ body {
   margin-left: -12px;
   background: #ddd;
 }
-.card-stats .avatars .avatar:first-child {
+.social__avatar:first-child {
   margin-left: 0;
 }
-.card-create {
-  grid-area: create;
-  background-color: #faeee2;
-}
-.card-create h3 {
-  font-weight: 500;
-  font-size: 28px;
-  letter-spacing: -2px;
-}
-.card-create .highlight {
-  color: #7c5cff;
-  font-style: italic;
-  letter-spacing: -2px;
-}
-.card-create .create-btn {
+
+/* Create */
+.social__btn {
   background: #ffcc69;
   color: #7c59ca;
   border: none;
@@ -235,56 +293,35 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(252, 213, 112, 0.4);
 }
-.card-write {
-  grid-area: write;
-  background-color: #ffcc69;
-}
-.card-write h3 {
-  font-weight: 500;
-  font-size: 28px;
-  letter-spacing: -2px;
-}
-.card-write .chat-ui {
+
+/* Write / Chat */
+.social__chat {
   background: #ffffff;
   border-radius: 16px;
   padding: 15px;
   margin-top: 15px;
 }
-.card-write .chat-ui .bubble {
+
+.social__chat-row {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 8px;
+}
+
+.social__bubble {
   background: #feeded;
   padding: 8px 12px;
   border-radius: 12px;
-  margin-bottom: 8px;
   font-size: 0.8rem;
   width: fit-content;
 }
-.card-write .chat-ui .bubble.ai {
+.social__bubble--ai {
   background: #fdf5e8;
-  align-self: flex-end;
+  margin-left: auto;
 }
-.card-write .chat-ui .chat-wrapper {
-  display: flex;
-  align-items: end;
-}
-@media (min-width: 1024px) {
-  .card-write {
-    justify-content: flex-start;
-  }
-}
-.card-grow {
-  grid-area: grow;
-  background-color: #7651dc;
-  color: #ffffff;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-}
-.card-grow h3 {
-  color: #ffffff;
-  margin: 0;
-  font-size: 1.8rem;
-}
-.card-grow .grow-chart-mini {
+
+/* Grow */
+.social__grow-card {
   background: #ffffff;
   border-radius: 16px;
   padding: 10px;
@@ -292,18 +329,15 @@ body {
   flex-shrink: 0;
   color: black;
 }
-.card-grow .grow-chart-mini .num {
+
+.social__num {
   font-size: 1.2rem;
   font-weight: 800;
 }
-.card-grow .grow-chart-mini .badge {
+
+.social__badge {
   font-size: 0.7rem;
   color: #2ecc71;
-}
-@media (min-width: 1024px) {
-  .card-grow h3 {
-    font-size: 2rem;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
